@@ -1,3 +1,7 @@
+# board-game-library
+A way to organize and pick your game by type, number of players, age of players, and play time.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
