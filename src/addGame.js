@@ -14,7 +14,7 @@ function addGame() {
 
 return (
   <Card
-  bgcolor="primary"
+  bgcolor="success"
   header="Add Game"
   status={status}
   body={
@@ -112,10 +112,8 @@ return (
           <option value="37">Sandbox</option>
           <option value="38">Territory Building</option>
           <option value="39">Time Period, Historic or Future</option>
+          <option value="40">Travel</option>
+          <option value="41">War Games</option>
         </select>
-        <option value="40">Travel</option>
-        <option value="41">War Games</option>
-
+      </form>
     )
-  }
-)
