@@ -27,8 +27,8 @@ return (
         <input
           type="text"
           className="form-control"
-          id="name"
-          placeholder="Enter game name"
+          id="game"
+          placeholder="Enter game name, including edition if unique"
           value={name}
           onChange={(e) => setGame(e.currentTarget.value)}
         />
