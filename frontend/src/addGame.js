@@ -1,5 +1,10 @@
 import React from "react";
-import { UserContext, Card } from "./context";
+import UserContext from "./context";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function addGame() {
   const [show, setShow] = React.useState(true);
@@ -7,113 +12,138 @@ function addGame() {
   const [game, setGame] = React.useState("");
   const [ageRange, setAgeRange] = React.useState("");
   const [numberPlayers, setNumberPlayers] = React.useState("");
-  const [type, setType] = React.useState("");
   const [timeRange, setTimeRange] = React.useState("");
-  const [gameType, setGameType] = React.useState([]);
-}
+  const [gameType, setGameType] = React.useState("[]");
 
-return (
-  <Card
-  bgcolor="success"
-  header="Add Game"
-  status={status}
-  body={
-    show ? (
-      <>
-      <form>
-        <br />
-          Game Name
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          id="game"
-          placeholder="Enter game name, including edition if unique"
-          value={name}
-          onChange={(e) => setGame(e.currentTarget.value)}
-        />
-        <br />
-        Age Range
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          id="ageRange"
-          placeholder="Enter age range"
-          value={ageRange}
-          onChange={(e) => setAgeRange(e.currentTarget.value)}
-        />
-        <br />
-        Number of Players
-        <br />
-        <input
-          type="number"
-          className="form-control"
-          id="numberPlayers"
-          placeholder="Enter number of players"
-          value={numberPlayers}
-          onChange={(e) => setNumberPlayers(e.currentTarget.value)}
-        />
-        <br />
-        Play Time Range
-        <br />
-        <input
-          type="text"
-          className="form-control"
-          id="timeRange"
-          placeholder="Enter estimated play time in minutes"
-          value={ageRange}
-          onChange={(e) => setTimeRange(e.currentTarget.value)}
-        />
-        <br />
-        <select className="custom-select" multiple
-        id="gameType"
-        placeholder="Choose game type, select all that apply"
-        value={gameType}
-        onChange={(e) => setGameType(e.currentTarget.value)}
-        >
-          <option selected>Open this select menu</option>
-          <option value="1">Chance</option>
-          <option value="2">Collaborative</option>
-          <option value="3">Mystery</option>
-          <option value="4">Party</option>
-          <option value="5">Strategy</option>
-          <option value="6">Trivia</option>
-          <option value="7">Word Games</option>
-          <option value="8">Bluffing</option>
-          <option value="9">Card Game</option>
-          <option value="10">City or Civilization Building</option>
-          <option value="11">Collectable</option>
-          <option value="12">Deduction</option>
-          <option value="13">Dungeon Crawler</option>
-          <option value="14">Dexterity</option>
-          <option value="15">Dice</option>
-          <option value="16">Economic</option>
-          <option value="17">Educational</option>
-          <option value="18">Engine Building</option>
-          <option value="19">Exploration</option>
-          <option value="20">Farming</option>
-          <option value="21">Fighting</option>
-          <option value="22">Gamebooks</option>
-          <option value="23">Humourous</option>
-          <option value="24">Legacy</option>
-          <option value="25">Math Based</option>
-          <option value="26">Mature/Adult</option>
-          <option value="27">Maze</option>
-          <option value="28">Memory</option>
-          <option value="29">Miniature Games</option>
-          <option value="30">Murder Mystery</option>
-          <option value="31">Negotiation</option>
-          <option value="32">One Vs. Many</option>
-          <option value="33">Puzzle Games</option>
-          <option value="34">Racing</option>
-          <option value="35">Real-time</option>
-          <option value="36">Role-Playing</option>
-          <option value="37">Sandbox</option>
-          <option value="38">Territory Building</option>
-          <option value="39">Time Period, Historic or Future</option>
-          <option value="40">Travel</option>
-          <option value="41">War Games</option>
-        </select>
-      </form>
-    )
+  function handleAddGame() {
+    createGameRecord(game, ageRange, numberPlayers, timeRange, gameType);
+    setShow(false);
+  }
+
+  function clearForm() {
+    setGame("");
+    setAgeRange("");
+    setNumberPlayers("");
+    setTimeRange("");
+    setGameType("[]");
+    setShow(true);
+  }
+
+  return ( 
+    function BasicExample() {
+      return (
+        <Card>
+          <Card.Body>
+            <Card.Title>Add Game</Card.Title>
+            <Card.Text>
+              body={
+              show ? (
+              <Form>
+              <br />
+                <Form.Group className="mb-3" controlId="formBasicTextImput">
+                  <Form.Label>Game Name</Form.Label>
+                  <Form.Control type="text" placeholder="Enter game name" />
+                  <Form.Text className="text-muted">
+                  including edition if unique
+                  </Form.Text>
+                  onChange={(e) => setGame(e.currentTarget.value)}
+                </Form.Group>
+              <br />
+
+                <Form.Group className="mb-3" controlId="formBasicTextImput">
+                  <Form.Label>Age Range</Form.Label>
+                  <Form.Control type="text" placeholder="Enter age range" />
+                  <Form.Text className="text-muted">
+                    in years, example "9-99"
+                  </Form.Text>
+                  onChange={(e) => setAgeRange(e.currentTarget.value)}/
+                </Form.Group>
+              <br />
+
+                <Form.Group className="mb-3" controlId="formBasicTextImput">
+                  <Form.Number>Number of Players</Form.Number>
+                  <Form.Control type="number" placeholder="Enter number of players" />
+                  onChange={(e) => setNumberPlayers(e.currentTarget.value)}
+                  <br />
+
+                  <Form.Group className="mb-3" controlId="formBasicTextImput">
+                  <Form.Number>Play Time Range</Form.Number>
+                  <Form.Control type="number" placeholder="Enter estimated play time in minutes" />
+                  onChange={(e) => setTimeRange(e.currentTarget.value)}
+                </Form.Group>
+              <br />
+
+              <InputGroup className="mb-3">
+                <DropdownButton
+                 variant="outline-secondary"
+                title="Dropdown"
+                id="input-group-dropdown-1"
+                align="end"
+                >
+                  <Dropdown.Item href="chance">Chance</Dropdown.Item>
+                  <Dropdown.Item href="collaborative">Collaborative</Dropdown.Item>
+                  <Dropdown.Item href="mystery">Mystery</Dropdown.Item>
+                  <Dropdown.Item href="party">Party</Dropdown.Item>
+                  <Dropdown.Item href="strategy">Strategy</Dropdown.Item>
+                  <Dropdown.Item href="trivia">Trivia</Dropdown.Item>
+                  <Dropdown.Item href="wordGames">Word Games</Dropdown.Item>
+                  <Dropdown.Item href="bluffing">Bluffing</Dropdown.Item>
+                  <Dropdown.Item href="cardGame">Card Game</Dropdown.Item>
+                  <Dropdown.Item href="ityOrCivilizationBuilding">City or Civilization Building</Dropdown.Item>
+                  <Dropdown.Item href="collectable">Collectable</Dropdown.Item>
+                  <Dropdown.Item href="deduction">Deduction</Dropdown.Item>
+                  <Dropdown.Item href="dungeonCrawler">Dungeon Crawler</Dropdown.Item>
+                  <Dropdown.Item href="dexterity">Dexterity</Dropdown.Item>
+                  <Dropdown.Item href="dice">Dice</Dropdown.Item>
+                  <Dropdown.Item href="economic">Economic</Dropdown.Item>
+                  <Dropdown.Item href="educational">Educational</Dropdown.Item>
+                  <Dropdown.Item href="engineBuilding">Engine Building</Dropdown.Item>
+                  <Dropdown.Item href="exploration">Exploration</Dropdown.Item>
+                  <Dropdown.Item href="farming">Farming</Dropdown.Item>
+                  <Dropdown.Item href="fighting">Fighting</Dropdown.Item>
+                  <Dropdown.Item href="gamebooks">Gamebooks</Dropdown.Item>
+                  <Dropdown.Item href="humourous">Humourous</Dropdown.Item>
+                  <Dropdown.Item href="legacy">Legacy</Dropdown.Item>
+                  <Dropdown.Item href="mathBased">Math Based</Dropdown.Item>
+                  <Dropdown.Item href="matureAdult">Mature/Adult</Dropdown.Item>
+                  <Dropdown.Item href="maze">Maze</Dropdown.Item>
+                  <Dropdown.Item href="memory">Memory</Dropdown.Item>
+                  <Dropdown.Item href="miniatureGames">Miniature Games</Dropdown.Item>
+                  <Dropdown.Item href="murderMystery">Murder Mystery</Dropdown.Item>
+                  <Dropdown.Item href="negotiation">Negotiation</Dropdown.Item>
+                  <Dropdown.Item href="oneVs.Many">One Vs. Many</Dropdown.Item>
+                  <Dropdown.Item href="puzzleGames">Puzzle Games</Dropdown.Item>
+                  <Dropdown.Item href="racing">Racing</Dropdown.Item>
+                  <Dropdown.Item href="realTime">Real-Time</Dropdown.Item>
+                  <Dropdown.Item href="rolePlaying">Role-Playing</Dropdown.Item>
+                  <Dropdown.Item href="sandbox">Sandbox</Dropdown.Item>
+                  <Dropdown.Item href="territorybuilding">Territory Building</Dropdown.Item>
+                  <Dropdown.Item href="timePeriod">Time Period, Historic or Future</Dropdown.Item>
+                  <Dropdown.Item href="travel">Travel</Dropdown.Item>
+                  <Dropdown.Item href="warGame">War Games</Dropdown.Item>
+                </DropdownButton>
+              </InputGroup>
+            </Card.Text>
+          </Form>
+
+          </>
+              <br />
+            <Button variant="primary">Go somewhere</Button>
+              <Button variant="btn btn-light" type="submit">Add Game</Button>
+                disabled={!game.length && !email.length && !password.length}
+                onClick={handleAddGame}
+          </>
+        ) : (
+          <>
+            <h5>Success</h5>
+            <Button variant="btn btn-light" type="submit">Add another game
+            </Button>
+              onClick={clearForm}
+          </>
+        )
+          </Card.Body>
+        </Card>
+    }
+  }
+}
+export default addGame;

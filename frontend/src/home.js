@@ -1,4 +1,4 @@
-import { UserContext, Card } from './context';
+import { UserContext } from './context';
 import React from 'react';
 
 function Home(){

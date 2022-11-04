@@ -38,7 +38,7 @@ function NavBar() {
           href="#"
           onClick={() => setTab("home")}
         >
-          Capstone Bank
+          Board Game Library
         </a>
         <button
           className="navbar-toggler"

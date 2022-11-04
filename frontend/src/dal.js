@@ -1,5 +1,5 @@
-const apiLogin = ({email, password}) => {
-  return fetch(`/account/login/${email}/${password}`);
+const apiAddGame = ({game, ageRange, numberPlayers, timeRange, gameType}) => {
+  return fetch(`${game}/${password}`);
 };
 const apiCreateAccount = ({name, email, password}) => {
   return fetch(`/account/create/${name}/${email}/${password}`);
@@ -9,7 +9,7 @@ const apiLibrary = ({email, [library]}) => {
 };
 
 export {
-  apiLogin,
+  apiAddGame,
   apiCreateAccount,
   apiLibrary,
 };

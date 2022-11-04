@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react';
 import { HashRouter, Routes, Route } from "react-router-dom";
-import CreateAccount from './createAccount';
 import addGame from './addGame';
 //import gameLibrary from './gameLibrary';
 import Logout from './logout';
@@ -16,7 +15,6 @@ function App() {
         <div className="container" style={{padding: "20px"}}>
           <Routes>
             <Route path="/addGame/" element={<addGame />} />
-            <Route path="/createAccount/" element={<CreateAccount />} />
             <Route path="/gameLibrary/" element={<gameLibrary />} />
             <Route path="/logout/" element={<Logout />} />
           </Routes>

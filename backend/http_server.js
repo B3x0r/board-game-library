@@ -7,54 +7,22 @@ app.use(cors({ origin: process.env.PORT || "http://localhost:8080" }));
 
 app.use(express.static(path.join(path.resolve(), "build")));
 
-//create user account
-app.get("/account/create/:name/:email/:password", function (req, res) {
-  //else create user
-  dal
-    .createUser(req.params)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-    res.send({ success: false })
-  });
-});
+//add game
+app.post("/game/add", (req, res) => res.send("add a game"));
 
-//login user
-app.get("/account/login/:email/:password/", function (req, res) {
-  dal
-    .verifyUser(req.params)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch(() => {
-      res.send({ success: false });
-    });
-});
+//delete game
+app.post("/game/delete/:game_id", (req, res) => res.send("remove a game"));
 
-//balance
-app.get("/account/balance/:email/:balance/", function (req, res) {
-  dal
-    .updateBalance(req.params)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch(() => {
-      res.send({ success: false });
-    });
-});
+//update game
+app.post("/game/update/:game_id", (req, res) => res.send("update a game"));
 
-// all accounts
-app.get("/account/all", function (req, res) {
-  dal
-  .all()
-  .then((docs) => {
-    res.send(docs);
-  })
-  .catch(() => {
-    res.send({ success: false });
-  });
-});
+//get all games
+app.get("/game/library", (req, res) => res.send("get library"));
+
+// catch all
+app.get("*", function(req, res){
+  res.send("page not found")
+})
 
 var port = process.env.PORT || 3000;
 app.listen(port);

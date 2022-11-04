@@ -1,5 +1,6 @@
 import React from 'react';
-import { UserContext, Card } from './context';
+import Card from 'react-bootstrap/Card';
+import { UserContext } from './context';
 
 function Logout() {
 	const { setIsLoggedin } = React.useContext(UserContext);
@@ -10,7 +11,7 @@ function Logout() {
 		};
 
 	return (
-		<Card
+		<Card>
 			bgcolor="success"
 			header="Log Out"
 			body={
@@ -19,8 +20,9 @@ function Logout() {
 					onClick={handleLogout}>
 					Logout User
 				</button>
+		</Card>
       }
-    />
+  	/>
 	)
 }
 

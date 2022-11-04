@@ -45,11 +45,11 @@ function addGame({ game, ageRange, numberPlayers, timeRange, gameType }) {
 //       .catch(reject)
 //   );
 // }
-//balance
+
 function updateGames ({game}) {
   return new Promise((resolve, reject) =>{
     db.
-      collection("gamess").updateOne(
+      collection("games").updateOne(
         { game: game }
       )
     .then((result) => {
