@@ -1,15 +1,19 @@
 const apiAddGame = ({game, ageRange, numberPlayers, timeRange, gameType}) => {
-  return fetch(`${game}/${password}`);
+  return fetch("/game/add", {method:"POST"});
 };
-const apiCreateAccount = ({name, email, password}) => {
-  return fetch(`/account/create/${name}/${email}/${password}`);
+const apiDeleteGame = ({game_id}) => {
+  return fetch(`/game/delete/${game_id}`, {method:"POST"});
 };
-const apiLibrary = ({email, [library]}) => {
-  return fetch(`/account/library/${email}/${[library]}`);
+const apiUpdateGame = ({game, ageRange, numberPlayers, timeRange, gameType, game_id}) => {
+  return fetch(`/game/update/${game_id}`, {method:"POST"});
+};
+const apiLibrary = () => {
+  return fetch(`/game/library`);
 };
 
 export {
   apiAddGame,
-  apiCreateAccount,
+  apiDeleteGame,
+  apiUpdateGame,
   apiLibrary,
 };

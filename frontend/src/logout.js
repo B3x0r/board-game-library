@@ -20,9 +20,8 @@ function Logout() {
 					onClick={handleLogout}>
 					Logout User
 				</button>
-		</Card>
       }
-  	/>
+  	</Card>
 	)
 }
 

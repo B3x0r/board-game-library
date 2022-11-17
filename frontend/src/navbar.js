@@ -3,17 +3,12 @@ import { UserContext } from './context';
 
 function NavBar() {
   const [navTab, setTab] = React.useState("home");
-  const { isLoggedin, user } = React.useContext(UserContext);
 
   React.useEffect(() => {
-    if (window.location.hash.indexOf("Create") > -1) {
-      setTab("createAccount/")
-    } else if(window.location.hash.indexOf("addGame") > -1) {
+    if (window.location.hash.indexOf("addGame") > -1) {
       setTab("addGame/")
     } else if(window.location.hash.indexOf("gameLibrary") > -1) {
       setTab("gameLibrary/")
-    } else if(window.location.hash.indexOf("Logout") > -1) {
-      setTab("Logout/")
     } else {
       setTab("home")
     }
@@ -55,34 +50,6 @@ function NavBar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            {!isLoggedin ?
-            <>
-          <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("Login/")}
-                onClick={() => setTab("Login/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Log in here"
-                href="#/Login/"
-              >
-                Login<span className="tooltiptext"></span>
-              </a>
-            </li>
-            <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("CreateAccount/")}
-                onClick={() => setTab("CreateAccount/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Create account here"
-                href="#/CreateAccount/"
-              >
-                Create Account<span className="tooltiptext"></span>
-              </a>
-            </li>
-            </>
-            :
             <>
             <li className="nav-item">
               <a
@@ -108,32 +75,13 @@ function NavBar() {
                 Your Game Library<span className="tooltiptext"></span>
               </a>
             </li>        
-          <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("Logout/")}
-                onClick={() => setTab("Logout/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Log Out here"
-                href="#/Logout/"
-              >
-                Log Out<span className="tooltiptext"></span>
-              </a>
-            </li>
             </>
-            }
           </ul>
         </div>
-            {isLoggedin ?
+            {
               <>
                 <span className="navbar-text">
-                  Welcome {user.name}!
-                </span>
-              </>
-              :
-              <>
-                <span className="navbar-text">
-                  Welcome Visitor!
+                  Welcome Gamer!
                 </span>
               </>
             }

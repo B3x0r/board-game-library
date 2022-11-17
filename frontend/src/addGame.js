@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from 'react';
 import UserContext from "./context";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function addGame() {
-  const [show, setShow] = React.useState(true);
-  const [status, setStatus] = React.useState("");
-  const [game, setGame] = React.useState("");
-  const [ageRange, setAgeRange] = React.useState("");
-  const [numberPlayers, setNumberPlayers] = React.useState("");
-  const [timeRange, setTimeRange] = React.useState("");
-  const [gameType, setGameType] = React.useState("[]");
+  const [show, setShow] = useState(true);
+  const [game, setGame] = useState("");
+  const [ageRange, setAgeRange] = useState("");
+  const [numberPlayers, setNumberPlayers] = useState("");
+  const [timeRange, setTimeRange] = useState("");
+  const [gameType, setGameType] = useState("[]");
 
   function handleAddGame() {
     createGameRecord(game, ageRange, numberPlayers, timeRange, gameType);
@@ -28,57 +28,52 @@ function addGame() {
     setGameType("[]");
     setShow(true);
   }
-
-  return ( 
-    function BasicExample() {
-      return (
-        <Card>
-          <Card.Body>
-            <Card.Title>Add Game</Card.Title>
-            <Card.Text>
-              body={
-              show ? (
-              <Form>
-              <br />
-                <Form.Group className="mb-3" controlId="formBasicTextImput">
-                  <Form.Label>Game Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter game name" />
-                  <Form.Text className="text-muted">
-                  including edition if unique
-                  </Form.Text>
-                  onChange={(e) => setGame(e.currentTarget.value)}
-                </Form.Group>
-              <br />
-
-                <Form.Group className="mb-3" controlId="formBasicTextImput">
-                  <Form.Label>Age Range</Form.Label>
-                  <Form.Control type="text" placeholder="Enter age range" />
-                  <Form.Text className="text-muted">
-                    in years, example "9-99"
-                  </Form.Text>
-                  onChange={(e) => setAgeRange(e.currentTarget.value)}/
-                </Form.Group>
-              <br />
-
-                <Form.Group className="mb-3" controlId="formBasicTextImput">
-                  <Form.Number>Number of Players</Form.Number>
-                  <Form.Control type="number" placeholder="Enter number of players" />
-                  onChange={(e) => setNumberPlayers(e.currentTarget.value)}
-                  <br />
-
-                  <Form.Group className="mb-3" controlId="formBasicTextImput">
-                  <Form.Number>Play Time Range</Form.Number>
-                  <Form.Control type="number" placeholder="Enter estimated play time in minutes" />
-                  onChange={(e) => setTimeRange(e.currentTarget.value)}
-                </Form.Group>
-              <br />
-
-              <InputGroup className="mb-3">
-                <DropdownButton
-                 variant="outline-secondary"
-                title="Dropdown"
-                id="input-group-dropdown-1"
-                align="end"
+ 
+  return show ? (
+    <Card style={{ width: '18rem' }}>
+    <Card.Body>
+      <Card.Title>Add Game</Card.Title>
+        <Form>
+          <br />
+            <Form.Group className="mb-3" controlId="formBasicTextImput">
+              <Form.Label>Game Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter game name" />
+              <Form.Text className="text-muted">
+                including edition, if unique
+              </Form.Text>
+                onChange={(e) => setGame(e.currentTarget.value)}
+            </Form.Group>
+          <br />
+            <Form.Group className="mb-3" controlId="formBasicTextImput">
+              <Form.Label>Age Range</Form.Label>
+              <Form.Control type="text" placeholder="Enter age range" />
+              <Form.Text className="text-muted">
+                in years, example "9-99"
+              </Form.Text>
+                onChange={(e) => setAgeRange(e.currentTarget.value)}/
+            </Form.Group>
+           <br />
+             <Form.Group className="mb-3" controlId="formBasicTextImput">
+                <Form.Text>Number of Players</Form.Text>
+                <Form.Control type="number"
+                  placeholder="Enter number of players"
+                  onChange={(e) => setNumberPlayers(e.currentTarget.value)}/>
+              </Form.Group>
+            <br />
+              <Form.Group className="mb-3" controlId="formBasicTextImput">
+                <Form.Text>Play Time Range</Form.Text>
+                <Form.Control type="number"
+                  placeholder="Enter estimated play time in minutes" 
+                  onChange={(e) => setTimeRange(e.currentTarget.value)}/>
+              </Form.Group>
+            <br />
+              <Form.Group>
+                <InputGroup className="mb-3">
+                  <DropdownButton
+                    variant="outline-secondary"
+                    title="Dropdown"
+                    id="input-group-dropdown-1"
+                    align="end"
                 >
                   <Dropdown.Item href="chance">Chance</Dropdown.Item>
                   <Dropdown.Item href="collaborative">Collaborative</Dropdown.Item>
@@ -123,27 +118,27 @@ function addGame() {
                   <Dropdown.Item href="warGame">War Games</Dropdown.Item>
                 </DropdownButton>
               </InputGroup>
-            </Card.Text>
-          </Form>
-
-          </>
               <br />
-            <Button variant="primary">Go somewhere</Button>
-              <Button variant="btn btn-light" type="submit">Add Game</Button>
-                disabled={!game.length && !email.length && !password.length}
+            <Button variant="primary">Add Game</Button>
+              <Button variant="btn btn-light"
+                type="submit">Add Game</Button>
                 onClick={handleAddGame}
-          </>
+            </Form.Group>
+          </Form>
+    </Card.Body>
+    </Card>
         ) : (
           <>
-            <h5>Success</h5>
-            <Button variant="btn btn-light" type="submit">Add another game
-            </Button>
-              onClick={clearForm}
+          <Card>
+            <Card.Body>
+             <Card.Title>Success</Card.Title>
+              <Button variant="btn btn-light">Add another game</Button>
+                onClick={clearForm}
+            </Card.Body>
+          </Card>
           </>
         )
-          </Card.Body>
-        </Card>
     }
-  }
-}
+
+
 export default addGame;

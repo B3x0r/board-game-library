@@ -1,17 +1,15 @@
 import React from "react";
 import {
   apiAddGame,
-  apiGetGameLibrary,
-  //apiRemoveGame,
+  apiRemovDeleteGame,
+  apiUpdateGame,
+  apiLibrary,
 } from "./dal";
 
 const UserContext = React.createContext();
+const gameLibrary = [];
 
-const UserProvider = ( {children} ) => {
-  const [user, setUser] = React.useState({});
-  const [isLoggedin, setIsLoggedin] = React.useState(false);
-  const [userArray, setUserArray] = React.useState([]);
-
+const UserProvider = ({ children }) => {
   const addGame = (game, ageRange, numberPlayers, timeRange, gameType) => {
     const newGame = {
       game: game,
@@ -25,30 +23,29 @@ const UserProvider = ( {children} ) => {
   };
 
   const pushGame = (newGame) => {
-    userArray.push(newGame);
-    setGameLibrary(gameLibrary);
+    gameLibrary.push(newGame);
+    setLibrary(gameLibrary);
   };
-    const getGameLibrary = () => {
-      return apiGetGameLibrary()
-      .then(async result => {
-        const user = await result.json();
-        setGameLibrary(newGame)
+  const getLibrary = () => {
+    return apiLibrary()
+      .then(async (result) => {
+        gameLibrary = await result.json();
       })
-      .catch(err => console.error(err))
-    };
+      .catch((err) => console.error(err));
+  };
+  const setLibrary = () => {
+    //TODO
+  }
   return (
     <UserContext.Provider
       value={{
-        user,
-        isLoggedin,
-        setIsLoggedin,
-        validateLogin,
-        createAccount,
-        getAllData,
-        userArray,
+        addGame,
+        getLibrary,
+        setLibrary,
+        gameLibrary
       }}
     >
-    {children}
+      {children}
     </UserContext.Provider>
   );
 };
