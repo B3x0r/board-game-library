@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import UserContext from "./context";
+import React from 'react';
+import GameContext from "./context";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -7,16 +7,25 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-function addGame() {
-  const [show, setShow] = useState(true);
-  const [game, setGame] = useState("");
-  const [ageRange, setAgeRange] = useState("");
-  const [numberPlayers, setNumberPlayers] = useState("");
-  const [timeRange, setTimeRange] = useState("");
-  const [gameType, setGameType] = useState("[]");
+function AddGame() {
+  const [show, setShow] = React.useState(true);
+  const [game, setGame] = React.useState("");
+  const [ageRange, setAgeRange] = React.useState("");
+  const [numberPlayers, setNumberPlayers] = React.useState("");
+  const [timeRange, setTimeRange] = React.useState("");
+  const [gameType, setGameType] = React.useState("[]");
 
   function handleAddGame() {
     createGameRecord(game, ageRange, numberPlayers, timeRange, gameType);
+    setShow(false);
+  }
+
+  function createGameRecord() {
+    setGame(game);
+    setAgeRange(ageRange);
+    setNumberPlayers(numberPlayers);
+    setTimeRange(timeRange);
+    setGameType("[]");
     setShow(false);
   }
 
@@ -141,4 +150,4 @@ function addGame() {
     }
 
 
-export default addGame;
+export default AddGame;

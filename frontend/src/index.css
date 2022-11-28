@@ -1,8 +1,11 @@
+/* colors from https://www.shutterstock.com/blog/101-color-combinations-design-inspiration */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: #40686A;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +13,74 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #40686A;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: 2F1812;
+}
+
+.App-link {
+  color: #B78338;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* navbar color */
+.navbar {
+  background-color: #915C4C;
+  display: flex;
+  flex-direction: row;
+}
+
+/* mouse over link navbar navbar-expand-lg navbar-light info*/
+.nav.item a:hover {
+  background-color: #2F1812;
+  color: white !important;
+}
+
+.navbar a.active {
+  background-color: #915C4C;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.caption1 {
+  font-style: italic;
+  }
+
+.caption3 {
+  color: #915C4C;
+}
+
+.h1 {
+  color: #2F1812; 
 }

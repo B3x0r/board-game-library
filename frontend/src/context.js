@@ -1,15 +1,15 @@
 import React from "react";
 import {
   apiAddGame,
-  apiRemovDeleteGame,
+  apiRemoveDeleteGame,
   apiUpdateGame,
   apiLibrary,
 } from "./dal";
 
-const UserContext = React.createContext();
-const gameLibrary = [];
+const GameContext = React.createContext();
+let gameLibrary = [];
 
-const UserProvider = ({ children }) => {
+const GameProvider = ({ children }) => {
   const addGame = (game, ageRange, numberPlayers, timeRange, gameType) => {
     const newGame = {
       game: game,
@@ -37,7 +37,7 @@ const UserProvider = ({ children }) => {
     //TODO
   }
   return (
-    <UserContext.Provider
+    <GameContext.Provider
       value={{
         addGame,
         getLibrary,
@@ -46,8 +46,8 @@ const UserProvider = ({ children }) => {
       }}
     >
       {children}
-    </UserContext.Provider>
+    </GameContext.Provider>
   );
 };
 
-export { UserContext, UserProvider };
+export { GameContext, GameProvider };
