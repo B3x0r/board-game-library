@@ -1,15 +1,18 @@
-import Card from 'react-bootstrap/Card';
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-function Home(){
+function Home() {
   return (
-    <Card>
-      bgcolor="success"
-      txtcolor="white"
-      header="Board Game Library"
-      title="Step Right up and Pick the Right Game"
-      text="a new way to check out your own games"
-      body={(<img src="games.jpg" className="img-fluid" alt="Image of a shelf full of board games"/>)}
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="scr/games.jpg" className="img-fluid" alt="Image of a shelf full of board games" />
+      <Card.Body>
+        <Card.Title>Board Game Library</Card.Title>
+        <Card.Text>
+          A new way to check out your own games.
+        </Card.Text>
+        <Button variant="primary">Pick the Right Game</Button>
+      </Card.Body>
     </Card>
   );
 }
