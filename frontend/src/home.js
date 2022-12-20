@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 function Home() {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="scr/games.jpg" className="img-fluid" alt="Image of a shelf full of board games" />
+      <Card.Img variant="top" src="./games.jpg" className="img-fluid" alt="Image of a shelf full of board games" />
       <Card.Body>
         <Card.Title>Board Game Library</Card.Title>
         <Card.Text>
