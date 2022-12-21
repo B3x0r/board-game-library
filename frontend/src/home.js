@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import GetGameLibrary from './gameLibrary';
 
 function Home() {
   return (
@@ -11,7 +12,9 @@ function Home() {
         <Card.Text>
           A new way to check out your own games.
         </Card.Text>
-        <Button variant="primary">Pick the Right Game</Button>
+        <Button  type="submit"
+              className="Primary"
+              onClick={GetGameLibrary}>Pick the Right Game</Button>
       </Card.Body>
     </Card>
   );
