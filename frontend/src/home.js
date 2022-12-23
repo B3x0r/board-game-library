@@ -12,9 +12,10 @@ function Home() {
         <Card.Text>
           A new way to check out your own games.
         </Card.Text>
-        <Button  type="submit"
-              className="Primary"
-              onClick={GetGameLibrary}>Pick the Right Game</Button>
+        <Button href="/#gameLibrary/"
+          variant="primary">
+          Pick the Right Game
+          </Button>
       </Card.Body>
     </Card>
   );

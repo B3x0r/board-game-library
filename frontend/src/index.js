@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import NavBar from './navbar';
 import Home from './home';
-import AddGame from './addGame';
+import AddGamePage from './addGame';
 import GetGameLibrary from './gameLibrary';
 import React from 'react';
 import { HashRouter, Routes, Route } from "react-router-dom";
@@ -18,8 +18,8 @@ function App() {
         <div className="container" style={{padding: "20px"}}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addGame/" element={<addGame />} />
-            <Route path="/gameLibrary/" element={<gameLibrary />} />
+            <Route path="/addGame/" element={<AddGamePage />} />
+            <Route path="/gameLibrary/" element={<GetGameLibrary />} />
           </Routes>
         </div>
       </GameProvider>      

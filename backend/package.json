@@ -5,7 +5,7 @@
   "main": "http_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon http_server.js"
+    "start": "PORT=3030 nodemon http_server.js"
   },
   "author": "RJD",
   "license": "MIT",

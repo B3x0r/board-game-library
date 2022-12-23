@@ -9,25 +9,19 @@ function NavBar() {
   return (
     <Navbar>
       <Container>
-        <Navbar.Brand
-          href="#"
-        >
-          Board Game Library
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" />
-        <Nav
+      <Nav
           className="justify-content-start"
           activeKey={active}
           onSelect={(selectedKey) => setActive(selectedKey)}
         >
-          <Nav.Link href="#" 
-            eventKey={"home"}>
-            Home
-          </Nav.Link>
+          <Navbar.Brand
+            href="#"
+          >
+            Board Game Library
+          </Navbar.Brand>
           <Nav.Link
             href="/#addGame/"
-            eventKey={"AddGame"}
+            eventKey="AddGame"
             data-toggle="tooltip"
             data-placement="bottom"
             title="Add Games Here"
@@ -36,7 +30,7 @@ function NavBar() {
           </Nav.Link>
           <Nav.Link
             href="/#gameLibrary/"
-            eventKey={"GetGameLibrary"}
+            eventKey="GetGameLibrary"
             data-toggle="tooltip"
             data-placement="bottom"
             title="Check Out All Your Games"
@@ -44,9 +38,11 @@ function NavBar() {
             Game Library
           </Nav.Link>
           </Nav>
-          <Navbar.Text className="justify-content-end">
-            Welcome Gamer!
-          </Navbar.Text>
+          <Nav>
+            <Navbar.Text className="justify-content-end">
+              Welcome Gamer!
+            </Navbar.Text>
+          </Nav>
       </Container>
     </Navbar>
   );

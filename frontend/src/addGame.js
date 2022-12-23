@@ -7,7 +7,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-function AddGame() {
+function AddGamePage() {
   const [show, setShow] = React.useState(true);
   const [game, setGame] = React.useState("");
   const [ageRange, setAgeRange] = React.useState("");
@@ -150,4 +150,4 @@ function AddGame() {
     }
 
 
-export default AddGame;
+export default AddGamePage;
