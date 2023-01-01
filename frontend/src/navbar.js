@@ -15,12 +15,12 @@ function NavBar() {
           onSelect={(selectedKey) => setActive(selectedKey)}
         >
           <Navbar.Brand
-            href="#"
+            href="/"
           >
             Board Game Library
           </Navbar.Brand>
           <Nav.Link
-            href="/#addGame/"
+            href="/addGame"
             eventKey="AddGame"
             data-toggle="tooltip"
             data-placement="bottom"
@@ -29,7 +29,7 @@ function NavBar() {
             Add Game
           </Nav.Link>
           <Nav.Link
-            href="/#gameLibrary/"
+            href="/gameLibrary"
             eventKey="GetGameLibrary"
             data-toggle="tooltip"
             data-placement="bottom"

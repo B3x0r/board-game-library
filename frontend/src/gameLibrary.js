@@ -1,11 +1,5 @@
 import React from 'react';
 import { GameContext } from "./context";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Card from 'react-bootstrap/Card';
-import InputGroup from 'react-bootstrap/InputGroup';
 import {
   apiAddGame,
   apiDeleteGame,

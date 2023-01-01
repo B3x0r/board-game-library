@@ -1,11 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import GetGameLibrary from './gameLibrary';
 
 function Home() {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '24rem' }}>
       <Card.Img variant="top" src="./games.jpg" className="img-fluid" alt="Image of a shelf full of board games" />
       <Card.Body>
         <Card.Title>Board Game Library</Card.Title>
