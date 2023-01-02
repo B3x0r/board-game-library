@@ -1,4 +1,4 @@
-export const playTypes = [
+export const PlayTypes = [
   { value: "chance", label: "Chance" },
   { value: "collaborative", label: "Collaborative" },
   { value: "mystery", label: "Mystery" },

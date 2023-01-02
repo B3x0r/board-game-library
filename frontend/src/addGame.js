@@ -6,8 +6,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Col, Form } from "react-bootstrap";
-import { components, GamePlayType } from "./GamePlayType";
-import PlayTypes from "./PlayTypes";
+import GamePlayType from "./GamePlayType";
+import { PlayTypes } from "./PlayTypes";
 
 function AddGamePage() {
   const [show, setShow] = React.useState(true);
@@ -44,7 +44,7 @@ function AddGamePage() {
     <Card style={{ width: "24rem" }}>
       <Card.Body>
         <Card.Title>Add Game</Card.Title>
-        <Form>
+        <Form onSubmit={handleAddGame}>
           <br />
           <Form.Group className="mb-3" controlId="formBasicTextImput">
             <Form.Label>Game Name</Form.Label>
@@ -77,7 +77,7 @@ function AddGamePage() {
           <br />
           <Form.Group as={Col} controlId="game_play_field">
             <Form.Label>Game Play Type</Form.Label>
-              <Form.Control as="select" multiple value={ playTypes } onChange={e => GamePlayType([].slice.call(e.target.selectedOptions).map(item => item.value))}>
+              <Form.Control as="select" multiple value={ PlayTypes } onChange={e => GamePlayType([].slice.call(e.target.selectedOptions).map(item => item.value))}>
                 <option value="chance">Chance</option>
                 <option value="collaborative">Collaborative</option>
                 <option value="mystery">Mystery</option>
@@ -121,7 +121,7 @@ function AddGamePage() {
                 <option value="warGame">War Games</option>
               </Form.Control>
             <br />
-            <Button variant="primary" onClick={handleAddGame} type="submit">
+            <Button variant="primary" type="submit">
               Add Game
             </Button>
           </Form.Group>
