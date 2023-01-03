@@ -15,7 +15,7 @@ function AddGamePage() {
   const [numberPlayers, setNumberPlayers] = React.useState("");
   const [timeRange, setTimeRange] = React.useState("");
   const [gameType, setGameType] = React.useState("[]");
-  const [game_id, setGameID] = React.useState("");
+  const [gameID, setGameID] = React.useState("");
 
   function handleAddGame() {
     createGameRecord(game, ageRange, numberPlayers, timeRange, gameType);
@@ -28,7 +28,7 @@ function AddGamePage() {
     setNumberPlayers(numberPlayers);
     setTimeRange(timeRange);
     setGameType("[]");
-    setGameID(game_id);
+    setGameID(gameID);
     setShow(false);
   }
 

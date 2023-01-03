@@ -17,6 +17,7 @@ const GameProvider = ({ children }) => {
       numberPlayers: numberPlayers,
       timeRange: timeRange,
       gameType: gameType,
+      gameID: gameID
     };
     apiAddGame(newGame);
     pushGame(newGame);

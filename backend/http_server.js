@@ -8,12 +8,20 @@ app.use(cors({ origin: process.env.PORT || "http://localhost:8080" }));
 app.use(express.static(path.join(path.resolve(), "build")));
 
 //add game
-app.post("/game/add", (req, res) => res.send("add a game")) {
-  game: req.body.game,
-  ageRange: req.body.ageRange,
-  numberPlayers: req.body.numberPlayers,
-  timeRange: req.body.timeRange,
-  gameType: req.body.gameType,
+app.post("/game/add", (req, res) => ) {
+  const record = {
+    game: req.body.game,
+    ageRange: req.body.ageRange,
+    numberPlayers: req.body.numberPlayers,
+    timeRange: req.body.timeRange,
+    gameType: req.body.gameType,
+    gameID: req.body.gameID
+  }
+  AddGame(
+    [].slice
+      .call(e.target.selectedOptions)
+      .map((item) => item.value)
+  res.send("add a game");
 };
 
 //delete game
