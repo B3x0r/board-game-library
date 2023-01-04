@@ -1,5 +1,5 @@
 import React from "react";
-import GameContext from "./context";
+import { addGame } from "./context";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -30,6 +30,14 @@ function AddGamePage() {
     setGameType("[]");
     setGameID(gameID);
     setShow(false);
+    addGame({
+      game,
+      ageRange,
+      numberPlayers,
+      timeRange,
+      gameType,
+      gameID
+    })
   }
 
   function clearForm() {

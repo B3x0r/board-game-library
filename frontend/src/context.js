@@ -10,7 +10,7 @@ const GameContext = React.createContext();
 let gameLibrary = [];
 
 const GameProvider = ({ children }) => {
-  const addGame = (game, ageRange, numberPlayers, timeRange, gameType) => {
+  const addGame = ({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) => {
     const newGame = {
       game: game,
       ageRange: ageRange,

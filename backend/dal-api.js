@@ -15,8 +15,9 @@ function addGame({ game, ageRange, numberPlayers, timeRange, gameType }) {
   return new Promise((resolve, reject) =>
     db
     .collection("games")
-    .insertOne({
-      _id: game,
+    .insertOne( {
+      _id: gameIDNumber(),
+      game,
       ageRange,
       numberPlayers,
       timeRange,
@@ -25,6 +26,11 @@ function addGame({ game, ageRange, numberPlayers, timeRange, gameType }) {
     .then(result => resolve(result))
     .catch(err => reject(err))
   );
+}
+//create gameID numbers
+function gameIDNumber(game) {
+  const gameID = Date.now() + Math.floor(Math.random()*1000);
+  return gameID
 }
 // function verifyUser({ email, password }) {
 //   return new Promise((resolve, reject) =>
