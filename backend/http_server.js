@@ -1,10 +1,12 @@
 var express = require("express");
+var bodyParser = require('body-parser');
 var path = require ("path");
 var app = express();
 var cors = require("cors");
 var { addGame } = require("./dal-api")
 var dal = require("./dal-api.js");
 app.use(cors({ origin: process.env.PORT || "http://localhost:8080" }));
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(path.resolve(), "build")));
 

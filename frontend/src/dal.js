@@ -13,12 +13,12 @@ const apiAddGame = ({game, ageRange, numberPlayers, timeRange, gameType}) => {
     })
   });
 };
-const apiDeleteGame = ({game_id}) => {
-  return fetch(`/game/delete/${game_id}`, {
+const apiDeleteGame = ({gameID}) => {
+  return fetch(`/game/delete/${gameID}`, {
     method:"POST"});
 };
-const apiUpdateGame = ({game, ageRange, numberPlayers, timeRange, gameType}) => {
-  return fetch(`/game/update/${game_id}`, {method:"POST"});
+const apiUpdateGame = ({game, ageRange, numberPlayers, timeRange, gameType, gameID}) => {
+  return fetch(`/game/update/${gameID}`, {method:"POST"});
 };
 const apiLibrary = () => {
   return fetch(`/game/library`);
