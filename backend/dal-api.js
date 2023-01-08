@@ -66,18 +66,18 @@ function updateGames ({game}) {
 })
 }
 
-//all users data
-// function all() {
-//   return new Promise((resolve, reject) => {
-//     db
-//       .collection("users")
-//       .find({})
-//       .toArray()
-//       .then((result) => {
-//           resolve(result);
-//       })
-//       .catch(reject)
-//     })
-// };
+//all game data
+function all() {
+   return new Promise((resolve, reject) => {
+     db
+       .collection("games")
+       .find({})
+       .toArray()
+       .then((result) => {
+           resolve(result);
+       })
+       .catch(reject)
+     })
+ };
 
-module.exports = { addGame, updateGames };
+module.exports = { addGame, updateGames, all };

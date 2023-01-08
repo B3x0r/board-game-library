@@ -1,11 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import InputGroup from "react-bootstrap/InputGroup";
 import { Card, Col, Container, Form } from "react-bootstrap";
-import GamePlayType from "./GamePlayType";
-import { PlayTypes } from "./PlayTypes";
 import { GameContext } from "./context";
 
 function AddGamePage( ){
@@ -14,13 +9,12 @@ function AddGamePage( ){
   const [ageRange, setAgeRange] = React.useState("");
   const [numberPlayers, setNumberPlayers] = React.useState("");
   const [timeRange, setTimeRange] = React.useState("");
-  const [gameType, setGameType] = React.useState("[]");
+  const [gameType, setGameType] = React.useState([]);
   const [gameID, setGameID] = React.useState("");
   const { addGame } = React.useContext(GameContext);
 
-
-  function handleAddGame() {
-    createGameRecord(game, ageRange, numberPlayers, timeRange, gameType);
+  function handleAddGame(input) {
+    input.preventDefault();
     addGame({game, ageRange, numberPlayers, timeRange, gameType});
     setShow(false);
   }
@@ -53,7 +47,7 @@ function AddGamePage( ){
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Game Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter game name" />
+              <Form.Control type="text" placeholder="Enter game name" value={game} onChange={e=>setGame(e.target.value)}/>
               <Form.Text className="text-muted">
                 including edition, if unique
               </Form.Text>
@@ -61,7 +55,7 @@ function AddGamePage( ){
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Age Range</Form.Label>
-              <Form.Control type="text" placeholder="Enter age range" />
+              <Form.Control type="text" placeholder="Enter age range" value={ageRange} onChange={e=>setAgeRange(e.target.value)}/>
               <Form.Text className="text-muted">
                 in years, example "9-99"
               </Form.Text>
@@ -69,18 +63,15 @@ function AddGamePage( ){
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Number of Players</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter number of players"
-              />
+              <Form.Control type="text" placeholder="Enter number of players" value={numberPlayers} onChange={e=>setNumberPlayers(e.target.value)}/>
+              <Form.Text className="text-muted">
+                example "2-6"
+              </Form.Text>
             </Form.Group>
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Play Time Range</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter estimated play time in minutes"
-              />
+              <Form.Control type="number" placeholder="Enter estimated play time in minutes" value={timeRange} onChange={e=>setTimeRange(e.target.value)}/>
             </Form.Group>
             <br />
             <Form.Group as={Col} controlId="game_play_field">
@@ -88,9 +79,9 @@ function AddGamePage( ){
               <Form.Control
                 as="select"
                 multiple
-                value={PlayTypes}
+                value={gameType}
                 onChange={(e) =>
-                  GamePlayType(
+                  setGameType(
                     [].slice
                       .call(e.target.selectedOptions)
                       .map((item) => item.value)
@@ -144,7 +135,7 @@ function AddGamePage( ){
                 <option value="warGame">War Games</option>
               </Form.Control>
               <br />
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={createGameRecord}>
                 Add Game
               </Button>
             </Form.Group>

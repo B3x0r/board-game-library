@@ -3,9 +3,9 @@ var bodyParser = require('body-parser');
 var path = require ("path");
 var app = express();
 var cors = require("cors");
-var { addGame } = require("./dal-api")
+var { addGame, all } = require("./dal-api")
 var dal = require("./dal-api.js");
-app.use(cors({ origin: process.env.PORT || "http://localhost:8080" }));
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(path.resolve(), "build")));
@@ -36,8 +36,8 @@ app.post("/game/update/:game_id", (req, res) => res.send("update a game"));
 app.get("/game/library", (req, res) => {
   dal
   .all()
-  .then((docs) => {
-    res.send("get library");
+  .then((games) => {
+    res.send(games);
   })
   .catch(() => {
   res.send({ success: false});
@@ -49,6 +49,6 @@ app.get("*", function(req, res){
   res.send("page not found")
 })
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3030;
 app.listen(port);
 console.log("Running on port: " + port);

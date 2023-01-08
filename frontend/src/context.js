@@ -20,13 +20,8 @@ const GameProvider = ({ children }) => {
       gameID: gameID
     };
     apiAddGame(newGame);
-    pushGame(newGame);
   };
 
-  const pushGame = (newGame) => {
-    gameLibrary.push(newGame);
-    setLibrary(gameLibrary);
-  };
   const getLibrary = () => {
     return apiLibrary()
       .then(async (result) => {
@@ -34,15 +29,12 @@ const GameProvider = ({ children }) => {
       })
       .catch((err) => console.error(err));
   };
-  const setLibrary = () => {
-    //TODO
-  }
+
   return (
     <GameContext.Provider
       value={{
         addGame,
         getLibrary,
-        setLibrary,
         gameLibrary
       }}
     >

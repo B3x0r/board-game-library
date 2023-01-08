@@ -1,21 +1,12 @@
 import React from 'react';
 import { GameContext } from "./context";
-import {
-  apiAddGame,
-  apiDeleteGame,
-  apiUpdateGame,
-  apiLibrary,
-} from "./dal";
 
 function GetGameLibrary() {
   const {
-    createGameRecord,
-    gameLibrary
+    gameLibrary, getLibrary
   } = React.useContext(GameContext);
 
-  React.useEffect(() => {
-    gameLibrary()
-  }, []);
+  getLibrary();
 
   return  (
     <div className="container">
