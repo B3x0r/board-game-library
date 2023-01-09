@@ -45,15 +45,6 @@ code {
   color: #B78338;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* navbar color */
 .navbar {
   background-color: #915C4C;

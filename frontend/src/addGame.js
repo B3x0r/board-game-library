@@ -88,51 +88,51 @@ function AddGamePage( ){
                   )
                 }
               >
-                <option value="chance">Chance</option>
-                <option value="collaborative">Collaborative</option>
-                <option value="mystery">Mystery</option>
-                <option value="party">Party</option>
-                <option value="strategy">Strategy</option>
-                <option value="trivia">Trivia</option>
-                <option value="wordGames">Word Games</option>
-                <option value="bluffing">Bluffing</option>
-                <option value="cardGame">Card Game</option>
-                <option value="CityOrCivilizationBuilding">
+                <option value="Chance">Chance</option>
+                <option value="Collaborative">Collaborative</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Party">Party</option>
+                <option value="Strategy">Strategy</option>
+                <option value="Trivia">Trivia</option>
+                <option value="Word Games">Word Games</option>
+                <option value="Bluffing">Bluffing</option>
+                <option value="Card Game">Card Game</option>
+                <option value="City or Civilization Building">
                   City or Civilization Building
                 </option>
-                <option value="collectable">Collectable</option>
-                <option value="deduction">Deduction</option>
-                <option value="dungeonCrawler">Dungeon Crawler</option>
-                <option value="dexterity">Dexterity</option>
-                <option value="dice">Dice</option>
-                <option value="economic">Economic</option>
-                <option value="educational">Educational</option>
-                <option value="engineBuilding">Engine Building</option>
-                <option value="exploration">Exploration</option>
-                <option value="farming">Farming</option>
-                <option value="fighting">Fighting</option>
-                <option value="gamebooks">Gamebooks</option>
-                <option value="humourous">Humourous</option>
-                <option value="legacy">Legacy</option>
-                <option value="mathBased">Math Based</option>
-                <option value="matureAdult">Mature/Adult</option>
-                <option value="maze">Maze</option>
-                <option value="memory">Memory</option>
-                <option value="miniatureGames">Miniature Games</option>
-                <option value="murderMystery">Murder Mystery</option>
-                <option value="negotiation">Negotiation</option>
-                <option value="oneVs.Many">One Vs. Many</option>
-                <option value="puzzleGames">Puzzle Games</option>
-                <option value="racing">Racing</option>
-                <option value="realTime">Real-Time</option>
-                <option value="rolePlaying">Role-Playing</option>
-                <option value="sandbox">Sandbox</option>
-                <option value="territorybuilding">Territory Building</option>
-                <option value="timePeriod">
+                <option value="Collectable">Collectable</option>
+                <option value="Deduction">Deduction</option>
+                <option value="Dungeon Crawler">Dungeon Crawler</option>
+                <option value="Dexterity">Dexterity</option>
+                <option value="Dice">Dice</option>
+                <option value="Economic">Economic</option>
+                <option value="Educational">Educational</option>
+                <option value="EngineBuilding">Engine Building</option>
+                <option value="Exploration">Exploration</option>
+                <option value="Farming">Farming</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Gamebooks">Gamebooks</option>
+                <option value="Humourous">Humourous</option>
+                <option value="Legacy">Legacy</option>
+                <option value="Math Based">Math Based</option>
+                <option value="Mature Adult">Mature/Adult</option>
+                <option value="Maze">Maze</option>
+                <option value="Memory">Memory</option>
+                <option value="Miniature Games">Miniature Games</option>
+                <option value="Murder Mystery">Murder Mystery</option>
+                <option value="Negotiation">Negotiation</option>
+                <option value="One Vs. Many">One Vs. Many</option>
+                <option value="Puzzle Games">Puzzle Games</option>
+                <option value="Racing">Racing</option>
+                <option value="Real Time">Real-Time</option>
+                <option value="Role Playing">Role-Playing</option>
+                <option value="Sandbox">Sandbox</option>
+                <option value="Territory Building">Territory Building</option>
+                <option value="Time Period">
                   Time Period, Historic or Future
                 </option>
-                <option value="travel">Travel</option>
-                <option value="warGame">War Games</option>
+                <option value="Travel">Travel</option>
+                <option value="War Game">War Games</option>
               </Form.Control>
               <br />
               <Button variant="primary" type="submit" onClick={createGameRecord}>

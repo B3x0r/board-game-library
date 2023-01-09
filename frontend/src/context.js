@@ -26,6 +26,7 @@ const GameProvider = ({ children }) => {
     return apiLibrary()
       .then(async (result) => {
         gameLibrary = await result.json();
+        return gameLibrary;
       })
       .catch((err) => console.error(err));
   };
