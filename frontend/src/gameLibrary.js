@@ -46,7 +46,9 @@ function GetGameLibrary() {
                     ? gameTypeCap(game.gameType).join(", ")
                     : game.gameType}
                 </td>
-                <td>{game._id}</td>
+                <td>
+                  <a href={"/editGame/" + game._id}> Edit Game </a>
+                </td>             
               </tr>
             ))}
           </tbody>

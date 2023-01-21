@@ -4,15 +4,14 @@ import NavBar from "./navbar";
 import React, { Component, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as ReactDOMClient from 'react-dom/client';
-import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import { GameProvider } from "./context";
 
 import Home from "./home";
-import AddEdit from "./addGame";
+import AddEdit from "./gameForm";
 import GetGameLibrary from "./gameLibrary";
 
-class App extends React.Component{
+class App extends Component{
   render(){
     return(
         <div className="App">
