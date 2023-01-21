@@ -23,7 +23,7 @@ const apiDeleteGame = ({gameID}) => {
   return fetch(`${serverURL[env]}/game/delete/${gameID}`, {
     method:"POST"});
 };
-const apiUpdateGame = ({game, ageRange, numberPlayers, timeRange, gameType, gameID}) => {
+const apiEditGame = ({game, ageRange, numberPlayers, timeRange, gameType, gameID}) => {
   return fetch(`${serverURL[env]}/game/update/${gameID}`, {method:"POST"});
 };
 const apiLibrary = () => {
@@ -33,6 +33,6 @@ const apiLibrary = () => {
 export {
   apiAddGame,
   apiDeleteGame,
-  apiUpdateGame,
+  apiEditGame,
   apiLibrary,
 };

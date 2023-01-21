@@ -1,21 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { Card, Col, Container, Form } from "react-bootstrap";
 import { GameContext } from "./context";
+import { useParams } from "react-router-dom";
 
-function AddGamePage( ){
+function AddEdit(props) {
   const [show, setShow] = React.useState(true);
   const [game, setGame] = React.useState("");
   const [ageRange, setAgeRange] = React.useState("");
   const [numberPlayers, setNumberPlayers] = React.useState("");
   const [timeRange, setTimeRange] = React.useState("");
   const [gameType, setGameType] = React.useState([]);
-  const [gameID, setGameID] = React.useState("");
-  const { addGame } = React.useContext(GameContext);
+  const {gameID} = useParams();
+  const [isAddMode, setIsAddMode] = React.useState(true);
+  const { addGame, editGame } = React.useContext(GameContext);
+  console.log(gameID);
+
+  function isMode(gameID) {
+    gameID == undefined ? setIsAddMode(true) : setIsAddMode(false);
+  }
+
+  useEffect(() => {
+    isMode(gameID);
+  }, []);
+
+  function submitGame(input, gameID) {
+    gameID == undefined ? handleAddGame(input) : handleEditGame(gameID, input);
+
+  }
 
   function handleAddGame(input) {
     input.preventDefault();
-    addGame({game, ageRange, numberPlayers, timeRange, gameType});
+    addGame({ game, ageRange, numberPlayers, timeRange, gameType });
+    setShow(false);
+  }
+
+  function handleEditGame(input) {
+    input.preventDefault();
+    editGame({ game, ageRange, numberPlayers, timeRange, gameType, gameID });
     setShow(false);
   }
 
@@ -25,8 +47,7 @@ function AddGamePage( ){
     setNumberPlayers(numberPlayers);
     setTimeRange(timeRange);
     setGameType("[]");
-    setGameID(gameID);
-    setShow(false)
+    setShow(false);
   }
 
   function clearForm() {
@@ -42,12 +63,21 @@ function AddGamePage( ){
     <Container>
       <Card style={{ width: "24rem" }}>
         <Card.Body>
-          <Card.Title>Add Game</Card.Title>
-          <Form onSubmit={handleAddGame}>
+          {isAddMode ? (
+            <Card.Title>Add Game</Card.Title>
+          ) : (
+            <Card.Title>Edit Game</Card.Title>
+          )}
+          <Form onSubmit={submitGame}>
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Game Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter game name" value={game} onChange={e=>setGame(e.target.value)}/>
+              <Form.Control
+                type="text"
+                placeholder="Enter game name"
+                value={game}
+                onChange={(e) => setGame(e.target.value)}
+              />
               <Form.Text className="text-muted">
                 including edition, if unique
               </Form.Text>
@@ -55,7 +85,12 @@ function AddGamePage( ){
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Age Range</Form.Label>
-              <Form.Control type="text" placeholder="Enter age range" value={ageRange} onChange={e=>setAgeRange(e.target.value)}/>
+              <Form.Control
+                type="text"
+                placeholder="Enter age range"
+                value={ageRange}
+                onChange={(e) => setAgeRange(e.target.value)}
+              />
               <Form.Text className="text-muted">
                 in years, example "9-99"
               </Form.Text>
@@ -63,15 +98,23 @@ function AddGamePage( ){
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Number of Players</Form.Label>
-              <Form.Control type="text" placeholder="Enter number of players" value={numberPlayers} onChange={e=>setNumberPlayers(e.target.value)}/>
-              <Form.Text className="text-muted">
-                example "2-6"
-              </Form.Text>
+              <Form.Control
+                type="text"
+                placeholder="Enter number of players"
+                value={numberPlayers}
+                onChange={(e) => setNumberPlayers(e.target.value)}
+              />
+              <Form.Text className="text-muted">example "2-6"</Form.Text>
             </Form.Group>
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Play Time Range</Form.Label>
-              <Form.Control type="number" placeholder="Enter estimated play time in minutes" value={timeRange} onChange={e=>setTimeRange(e.target.value)}/>
+              <Form.Control
+                type="number"
+                placeholder="Enter estimated play time in minutes"
+                value={timeRange}
+                onChange={(e) => setTimeRange(e.target.value)}
+              />
             </Form.Group>
             <br />
             <Form.Group as={Col} controlId="game_play_field">
@@ -135,9 +178,24 @@ function AddGamePage( ){
                 <option value="War Game">War Games</option>
               </Form.Control>
               <br />
-              <Button variant="primary" type="submit" onClick={createGameRecord}>
-                Add Game
-              </Button>
+              {isAddMode ? (
+                <Button
+                  variant="primary"
+                  type="submit"
+                  onClick={createGameRecord}
+                >
+                  Add Game
+                </Button>
+              ) : (
+                <Button
+                  variant="primary"
+                  type="submit"
+                  onClick={createGameRecord}
+                >
+                  Edit Game
+                </Button>
+              )}
+              ;
             </Form.Group>
           </Form>
         </Card.Body>
@@ -149,9 +207,15 @@ function AddGamePage( ){
         <Card>
           <Card.Body>
             <Card.Title>Success</Card.Title>
-            <Button variant="btn btn-light" onClick={clearForm}>
-              Add another game
-            </Button>
+            {isAddMode ? (
+              <Button variant="btn btn-light" onClick={clearForm}>
+                Add another game
+              </Button>
+            ) : (
+              <Button variant="btn btn-light" onClick={clearForm}>
+                Edit another game
+              </Button>
+            )}
           </Card.Body>
         </Card>
       </Container>
@@ -159,4 +223,4 @@ function AddGamePage( ){
   );
 }
 
-export default AddGamePage;
+export default AddEdit;

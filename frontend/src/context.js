@@ -1,8 +1,7 @@
 import React from "react";
 import {
   apiAddGame,
-  apiRemoveDeleteGame,
-  apiUpdateGame,
+  apiEditGame,
   apiLibrary,
 } from "./dal";
 
@@ -11,7 +10,7 @@ let gameLibrary = [];
 
 const GameProvider = ({ children }) => {
   const addGame = ({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) => {
-    const newGame = {
+    let newGame = {
       game: game,
       ageRange: ageRange,
       numberPlayers: numberPlayers,
@@ -20,6 +19,18 @@ const GameProvider = ({ children }) => {
       gameID: gameID
     };
     apiAddGame(newGame);
+  };
+
+  const editGame = ({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) => {
+    let newGame = {
+      game: game,
+      ageRange: ageRange,
+      numberPlayers: numberPlayers,
+      timeRange: timeRange,
+      gameType: gameType,
+      gameID: gameID
+    };
+    apiEditGame(newGame);
   };
 
   const getLibrary = () => {
@@ -35,6 +46,7 @@ const GameProvider = ({ children }) => {
     <GameContext.Provider
       value={{
         addGame,
+        editGame,
         getLibrary,
         gameLibrary
       }}

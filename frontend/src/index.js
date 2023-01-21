@@ -1,14 +1,15 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import NavBar from "./navbar";
-import React from "react";
+import React, { Component, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ReactDOM from "react-dom/client";
+import * as ReactDOMClient from 'react-dom/client';
+import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import { GameProvider } from "./context";
 
 import Home from "./home";
-import AddGamePage from "./addGame";
+import AddEdit from "./addGame";
 import GetGameLibrary from "./gameLibrary";
 
 class App extends React.Component{
@@ -18,11 +19,14 @@ class App extends React.Component{
           <BrowserRouter>
             <GameProvider>
               <NavBar />
-              <Routes>
-                <Route exact path='/' element={< Home />} />
-                <Route exact path='/addGame' element={< AddGamePage />} />
-                <Route exact path='/gameLibrary' element={< GetGameLibrary />} />
-              </Routes>
+              <Suspense fallback={<div className="preloader">Loading...</div>}>
+                <Routes>
+                  <Route exact path='/' element={< Home />} />
+                  <Route exact path='/addGame' element={< AddEdit />} />
+                  <Route exact path='/gameLibrary' element={< GetGameLibrary />} />
+                  <Route exact path='/editGame/:gameID' element={< AddEdit />} />
+                </Routes>
+              </Suspense>
             </GameProvider>
           </BrowserRouter>
         </div>
@@ -31,7 +35,7 @@ class App extends React.Component{
 };
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOMClient.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />

@@ -39,7 +39,8 @@ app.get("/game/library", (req, res) => {
   .then((games) => {
     res.send(games);
   })
-  .catch(() => {
+  .catch((error) => {
+    console.error(error);
   res.send({ success: false});
 });
 })

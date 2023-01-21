@@ -82,6 +82,12 @@ code {
   color: #2F1812; 
 }
 
+.h3 {
+  color: #2F1812; 
+  justify-content: center;
+  margin-right: 4rem;
+}
+
 .container{
   display: flex;
   justify-content: center;
@@ -91,4 +97,14 @@ code {
   display: flex;
   text-align: center;
   justify-content: center;
+}
+
+th {
+  background-color: white;
+  color: #40686A;
+}
+
+tr {
+  background-color: white;
+  color: #40686A;
 }
