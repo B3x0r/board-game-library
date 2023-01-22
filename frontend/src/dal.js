@@ -1,38 +1,43 @@
 const serverURL = {
-  development: "http://localhost:3030"
+  development: "http://localhost:3030",
 };
-const env = process.env.NODE_ENV || "development"
-const apiAddGame = ({game, ageRange, numberPlayers, timeRange, gameType}) => {
+const env = process.env.NODE_ENV || "development";
+const apiAddGame = ({ game, ageRange, numberPlayers, timeRange, gameType }) => {
   console.log(serverURL[env]);
   console.log(env);
   return fetch(serverURL[env] + "/game/add", {
-    method:"POST",
-  headers: {
-    'Content-Type':'application/json'
-  },
-  body: JSON.stringify({
-    game,
-    ageRange,
-    numberPlayers,
-    timeRange,
-    gameType
-    })
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      game,
+      ageRange,
+      numberPlayers,
+      timeRange,
+      gameType,
+    }),
   });
 };
-const apiDeleteGame = ({gameID}) => {
+const apiDeleteGame = ({ gameID }) => {
   return fetch(`${serverURL[env]}/game/delete/${gameID}`, {
-    method:"POST"});
+    method: "POST",
+  });
 };
-const apiEditGame = ({game, ageRange, numberPlayers, timeRange, gameType, gameID}) => {
-  return fetch(`${serverURL[env]}/game/update/${gameID}`, {method:"POST"});
+const apiEditGame = ({
+  game,
+  ageRange,
+  numberPlayers,
+  timeRange,
+  gameType,
+  gameID,
+}) => {
+  return fetch(`${serverURL[env]}/game/update/${gameID}`, {
+    method: "POST" 
+  });
 };
 const apiLibrary = () => {
   return fetch(`${serverURL[env]}/game/library`);
 };
 
-export {
-  apiAddGame,
-  apiDeleteGame,
-  apiEditGame,
-  apiLibrary,
-};
+export { apiAddGame, apiDeleteGame, apiEditGame, apiLibrary };

@@ -17,7 +17,7 @@ function AddEdit(props) {
   console.log(gameID);
 
   function isMode(gameID) {
-    gameID == undefined ? setIsAddMode(true) : setIsAddMode(false);
+    gameID === undefined ? setIsAddMode(true) : setIsAddMode(false);
   }
 
   useEffect(() => {
@@ -26,7 +26,6 @@ function AddEdit(props) {
 
   function submitGame(input, gameID) {
     gameID == undefined ? handleAddGame(input) : handleEditGame(gameID, input);
-
   }
 
   function handleAddGame(input) {
@@ -182,7 +181,6 @@ function AddEdit(props) {
                 <Button
                   variant="primary"
                   type="submit"
-                  onClick={createGameRecord}
                 >
                   Add Game
                 </Button>
@@ -190,7 +188,6 @@ function AddEdit(props) {
                 <Button
                   variant="primary"
                   type="submit"
-                  onClick={createGameRecord}
                 >
                   Edit Game
                 </Button>
