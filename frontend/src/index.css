@@ -108,3 +108,7 @@ tr {
   background-color: white;
   color: #40686A;
 }
+
+.btn_secondary{
+  margin-left:10px;
+}

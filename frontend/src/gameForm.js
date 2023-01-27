@@ -11,10 +11,9 @@ function AddEdit(props) {
   const [numberPlayers, setNumberPlayers] = React.useState("");
   const [timeRange, setTimeRange] = React.useState("");
   const [gameType, setGameType] = React.useState([]);
-  const {gameID} = useParams();
+  const { gameID } = useParams();
   const [isAddMode, setIsAddMode] = React.useState(true);
-  const { addGame, editGame } = React.useContext(GameContext);
-  console.log(gameID);
+  const { addGame, getGame, editGame, deleteGame } = React.useContext(GameContext);
 
   function isMode(gameID) {
     gameID === undefined ? setIsAddMode(true) : setIsAddMode(false);
@@ -22,11 +21,17 @@ function AddEdit(props) {
 
   useEffect(() => {
     isMode(gameID);
+    console.log("isAddMode", isAddMode);
+    if (gameID) {
+      getGame(gameID).then((game) => {
+        setGame(game.game);
+        setAgeRange(game.ageRange);
+        setNumberPlayers(game.numberPlayers);
+        setTimeRange(game.timeRange);
+        setGameType(game.gameType);
+      });
+    }
   }, []);
-
-  function submitGame(input, gameID) {
-    gameID == undefined ? handleAddGame(input) : handleEditGame(gameID, input);
-  }
 
   function handleAddGame(input) {
     input.preventDefault();
@@ -40,12 +45,8 @@ function AddEdit(props) {
     setShow(false);
   }
 
-  function createGameRecord() {
-    setGame(game);
-    setAgeRange(ageRange);
-    setNumberPlayers(numberPlayers);
-    setTimeRange(timeRange);
-    setGameType("[]");
+  function handleDeleteGame(gameID, input) {
+    deleteGame({ game, ageRange, numberPlayers, timeRange, gameType, gameID });
     setShow(false);
   }
 
@@ -67,7 +68,7 @@ function AddEdit(props) {
           ) : (
             <Card.Title>Edit Game</Card.Title>
           )}
-          <Form onSubmit={submitGame}>
+          <Form>
             <br />
             <Form.Group className="mb-3" controlId="formBasicTextImput">
               <Form.Label>Game Name</Form.Label>
@@ -178,21 +179,19 @@ function AddEdit(props) {
               </Form.Control>
               <br />
               {isAddMode ? (
-                <Button
-                  variant="primary"
-                  type="submit"
-                >
+                <Button variant="primary" onClick={handleAddGame}>
                   Add Game
                 </Button>
               ) : (
-                <Button
-                  variant="primary"
-                  type="submit"
-                >
-                  Edit Game
-                </Button>
+                <>
+                  <Button variant="primary" onClick={handleEditGame}>
+                    Edit Game
+                  </Button>{'   '}
+                  <Button variant="secondary" onClick={handleDeleteGame}>
+                    Delete Game
+                  </Button>
+                </>
               )}
-              ;
             </Form.Group>
           </Form>
         </Card.Body>
@@ -210,7 +209,7 @@ function AddEdit(props) {
               </Button>
             ) : (
               <Button variant="btn btn-light" onClick={clearForm}>
-                Edit another game
+                Game updated, Add game
               </Button>
             )}
           </Card.Body>

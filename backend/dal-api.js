@@ -66,6 +66,37 @@ function updateGames ({game}) {
 })
 }
 
+//get single game data
+function getGame(gameID) {
+  return new Promise((resolve, reject) => {
+    console.log("Game ID", gameID);
+    db
+      .collection("games")
+      .find({"_id" : parseInt(gameID)})
+      .toArray()
+      .then((result) => {
+        console.log("result", result)
+          resolve(result[0]);
+      })
+      .catch(reject)
+    })
+};
+
+//delete single game data
+function deleteGame(gameID) {
+  return new Promise((resolve, reject) => {
+    console.log("Game ID", gameID);
+    db
+      .collection("games")
+      .deleteOne({"_id" : parseInt(gameID)})
+      .then((result) => {
+        console.log("result", result)
+          resolve(result);
+      })
+      .catch(reject)
+    })
+};
+
 //all game data
 function all() {
    return new Promise((resolve, reject) => {
@@ -80,4 +111,4 @@ function all() {
      })
  };
 
-module.exports = { addGame, updateGames, all };
+module.exports = { addGame, updateGames, getGame, deleteGame, all };

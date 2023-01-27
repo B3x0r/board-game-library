@@ -3,8 +3,7 @@ var bodyParser = require('body-parser');
 var path = require ("path");
 var app = express();
 var cors = require("cors");
-var { addGame, all } = require("./dal-api")
-var dal = require("./dal-api.js");
+var { addGame, getGame, all } = require("./dal-api")
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json());
 
@@ -27,15 +26,25 @@ app.post("/game/add", (req, res) => {
   })
 
 //delete game
-app.post("/game/delete/:game_id", (req, res) => res.send("remove a game"));
+app.get("/game/delete/:game_id", (req, res) => {
+const {game_id} = req.params;
+deleteGame(game_id)
+  .then((game) => {
+    res.send(game);
+  })
+  .catch((error) => {
+    console.error(error);
+  res.send({ success: false});
+  })
+    res.send("remove a game");
+})
 
 //update game
 app.post("/game/update/:game_id", (req, res) => res.send("update a game"));
 
 //get all games
 app.get("/game/library", (req, res) => {
-  dal
-  .all()
+  all()
   .then((games) => {
     res.send(games);
   })
@@ -43,6 +52,18 @@ app.get("/game/library", (req, res) => {
     console.error(error);
   res.send({ success: false});
 });
+})
+//get a single game
+app.get("/game/:game_id", (req, res) => {
+const {game_id} = req.params;
+getGame(game_id)
+  .then((game) => {
+    res.send(game);
+  })
+  .catch((error) => {
+    console.error(error);
+  res.send({ success: false});
+  })
 })
 
 // catch all

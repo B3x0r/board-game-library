@@ -31,7 +31,7 @@ function GetGameLibrary() {
               <th scope="col">Number of Players</th>
               <th scope="col">Average Play Time in Minutes</th>
               <th scope="col">Game Type</th>
-              <th scope="col">Game ID</th>
+              <th scope="col">Options</th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +47,7 @@ function GetGameLibrary() {
                     : game.gameType}
                 </td>
                 <td>
-                  <a href={"/editGame/" + game._id}> Edit Game </a>
+                  <a href={"/editGame/" + game._id}> Edit or Delete Game </a>
                 </td>             
               </tr>
             ))}

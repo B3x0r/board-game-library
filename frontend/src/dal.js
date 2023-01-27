@@ -19,10 +19,12 @@ const apiAddGame = ({ game, ageRange, numberPlayers, timeRange, gameType }) => {
     }),
   });
 };
-const apiDeleteGame = ({ gameID }) => {
-  return fetch(`${serverURL[env]}/game/delete/${gameID}`, {
-    method: "POST",
-  });
+const apiDeleteGame = (gameID) => {
+  return fetch(`${serverURL[env]}/game/delete/${gameID}`, {method: 'DELETE'})
+  };
+
+const apiGetGame = (gameID) => {
+  return fetch(`${serverURL[env]}/game/${gameID}`);
 };
 const apiEditGame = ({
   game,
@@ -40,4 +42,4 @@ const apiLibrary = () => {
   return fetch(`${serverURL[env]}/game/library`);
 };
 
-export { apiAddGame, apiDeleteGame, apiEditGame, apiLibrary };
+export { apiAddGame, apiDeleteGame, apiGetGame, apiEditGame, apiLibrary };
