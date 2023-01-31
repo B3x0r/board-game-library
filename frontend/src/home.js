@@ -14,7 +14,7 @@ function Home() {
         <Card.Body>
           <Card.Title>Board Game Library</Card.Title>
           <Card.Text>A new way to check out your own games.</Card.Text>
-          <Button href="/#gameLibrary/" variant="primary">
+          <Button href="/#gameLibrary/" variant="main">
             Pick the Right Game
           </Button>
         </Card.Body>

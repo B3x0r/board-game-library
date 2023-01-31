@@ -1,9 +1,24 @@
-/* colors from https://www.shutterstock.com/blog/101-color-combinations-design-inspiration */
+/* colors from #10. Turkish Coffee
+Copper #B78338
+Chestnut #915C4C Nav background
+Faded Jade #40686A main background
+Tamarind #2F1812
+https://www.shutterstock.com/blog/101-color-combinations-design-inspiration */
 
 *{
   margin: 20xp;
   padding: auto;
   box-sizing: border-box;
+}
+
+.btn-main {
+  background-color: #2F1812 !important;
+  color: white !important;
+}
+
+.btn-extra {
+  background-color: #B78338 !important;
+  color: white !important;
 }
 
 body {
@@ -109,6 +124,6 @@ tr {
   color: #40686A;
 }
 
-.btn_secondary{
-  margin-left:10px;
+button {
+  background-color: #2F1812;
 }

@@ -45,8 +45,8 @@ function AddEdit(props) {
     setShow(false);
   }
 
-  function handleDeleteGame(gameID, input) {
-    deleteGame({ game, ageRange, numberPlayers, timeRange, gameType, gameID });
+  function handleDeleteGame() {
+    deleteGame(gameID );
     setShow(false);
   }
 
@@ -179,15 +179,15 @@ function AddEdit(props) {
               </Form.Control>
               <br />
               {isAddMode ? (
-                <Button variant="primary" onClick={handleAddGame}>
+                <Button variant="main" onClick={handleAddGame}>
                   Add Game
                 </Button>
               ) : (
                 <>
-                  <Button variant="primary" onClick={handleEditGame}>
+                  <Button variant="main" onClick={handleEditGame}>
                     Edit Game
                   </Button>{'   '}
-                  <Button variant="secondary" onClick={handleDeleteGame}>
+                  <Button variant="extra" onClick={handleDeleteGame}>
                     Delete Game
                   </Button>
                 </>
@@ -204,11 +204,11 @@ function AddEdit(props) {
           <Card.Body>
             <Card.Title>Success</Card.Title>
             {isAddMode ? (
-              <Button variant="btn btn-light" onClick={clearForm}>
+              <Button variant="Btn-Main" onClick={clearForm}>
                 Add another game
               </Button>
             ) : (
-              <Button variant="btn btn-light" onClick={clearForm}>
+              <Button variant="Btn-Main" onClick={clearForm}>
                 Game updated, Add game
               </Button>
             )}
