@@ -115,6 +115,7 @@ function AddEdit(props) {
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value)}
               />
+              <Form.Text className="text-muted">example 2 hours would be "120" minutes</Form.Text>
             </Form.Group>
             <br />
             <Form.Group as={Col} controlId="game_play_field">
@@ -177,6 +178,7 @@ function AddEdit(props) {
                 <option value="Travel">Travel</option>
                 <option value="War Game">War Games</option>
               </Form.Control>
+              <Form.Text className="text-muted">hold shift down to select more than one</Form.Text>
               <br />
               {isAddMode ? (
                 <Button variant="main" onClick={handleAddGame}>

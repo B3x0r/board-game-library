@@ -31,7 +31,7 @@ const apiEditGame = ({
   numberPlayers,
   timeRange,
   gameType,
-  gameID
+  gameID,
 }) => {
   return fetch(`${serverURL[env]}/game/update/${gameID}`, {
     method: "POST",

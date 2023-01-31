@@ -11,14 +11,21 @@ const GameContext = React.createContext();
 let gameLibrary = [];
 
 const GameProvider = ({ children }) => {
-  const addGame = ({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) => {
+  const addGame = ({
+    game,
+    ageRange,
+    numberPlayers,
+    timeRange,
+    gameType,
+    gameID,
+  }) => {
     let newGame = {
       game: game,
       ageRange: ageRange,
       numberPlayers: numberPlayers,
       timeRange: timeRange,
       gameType: gameType,
-      gameID: gameID
+      gameID: gameID,
     };
     apiAddGame(newGame);
   };
@@ -31,14 +38,21 @@ const GameProvider = ({ children }) => {
       .catch((err) => console.error(err));
   };
 
-  const editGame = ({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) => {
+  const editGame = ({
+    game,
+    ageRange,
+    numberPlayers,
+    timeRange,
+    gameType,
+    gameID,
+  }) => {
     let newGame = {
       game: game,
       ageRange: ageRange,
       numberPlayers: numberPlayers,
       timeRange: timeRange,
       gameType: gameType,
-      gameID: gameID
+      gameID: gameID,
     };
     apiEditGame(newGame);
   };
@@ -68,7 +82,7 @@ const GameProvider = ({ children }) => {
         editGame,
         deleteGame,
         getLibrary,
-        gameLibrary
+        gameLibrary,
       }}
     >
       {children}

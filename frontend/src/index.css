@@ -5,25 +5,25 @@ Faded Jade #40686A main background
 Tamarind #2F1812
 https://www.shutterstock.com/blog/101-color-combinations-design-inspiration */
 
-*{
+* {
   margin: 20xp;
   padding: auto;
   box-sizing: border-box;
 }
 
 .btn-main {
-  background-color: #2F1812 !important;
+  background-color: #2f1812 !important;
   color: white !important;
 }
 
 .btn-extra {
-  background-color: #B78338 !important;
+  background-color: #b78338 !important;
   color: white !important;
 }
 
 body {
   margin: 20xp;
-  background: #40686A;
+  background: #40686a;
   font-family: Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -46,7 +46,7 @@ code {
 }
 
 .App-header {
-  background-color: #40686A;
+  background-color: #40686a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,24 +57,24 @@ code {
 }
 
 .App-link {
-  color: #B78338;
+  color: #b78338;
 }
 
 /* navbar color */
 .navbar {
-  background-color: #915C4C;
+  background-color: #915c4c;
   display: flex;
   flex-direction: row;
 }
 
 /* mouse over link navbar navbar-expand-lg navbar-light info*/
 .nav.item a:hover {
-  background-color: #2F1812;
+  background-color: #2f1812;
   color: white !important;
 }
 
 .navbar a.active {
-  background-color: #915C4C;
+  background-color: #915c4c;
 }
 
 .tooltip .tooltiptext {
@@ -87,23 +87,23 @@ code {
 
 .caption1 {
   font-style: italic;
-  }
+}
 
 .caption3 {
-  color: #915C4C;
+  color: #915c4c;
 }
 
 .h1 {
-  color: #2F1812; 
+  color: #2f1812;
 }
 
 .h3 {
-  color: #2F1812; 
+  color: #2f1812;
   justify-content: center;
   margin-right: 4rem;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: center;
 }
@@ -116,14 +116,14 @@ code {
 
 th {
   background-color: white;
-  color: #40686A;
+  color: #40686a;
 }
 
 tr {
   background-color: white;
-  color: #40686A;
+  color: #40686a;
 }
 
 button {
-  background-color: #2F1812;
+  background-color: #2f1812;
 }

@@ -9,16 +9,12 @@ function NavBar() {
   return (
     <Navbar>
       <Container>
-      <Nav
+        <Nav
           className="justify-content-start"
           activeKey={active}
           onSelect={(selectedKey) => setActive(selectedKey)}
         >
-          <Navbar.Brand
-            href="/"
-          >
-            Board Game Library
-          </Navbar.Brand>
+          <Navbar.Brand href="/">Board Game Library</Navbar.Brand>
           <Nav.Link
             href="/addGame"
             eventKey="AddGame"
@@ -37,12 +33,12 @@ function NavBar() {
           >
             Game Library
           </Nav.Link>
-          </Nav>
-          <Nav>
-            <Navbar.Text className="justify-content-end">
-              Welcome Gamer!
-            </Navbar.Text>
-          </Nav>
+        </Nav>
+        <Nav>
+          <Navbar.Text className="justify-content-end">
+            Welcome Gamer!
+          </Navbar.Text>
+        </Nav>
       </Container>
     </Navbar>
   );

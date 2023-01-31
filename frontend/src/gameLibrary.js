@@ -48,7 +48,7 @@ function GetGameLibrary() {
                 </td>
                 <td>
                   <a href={"/editGame/" + game._id}> Edit or Delete Game </a>
-                </td>             
+                </td>
               </tr>
             ))}
           </tbody>

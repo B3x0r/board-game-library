@@ -63,11 +63,21 @@ function gameIDNumber(game) {
 //   );
 // }
 
-function updateGame({ game, ageRange, numberPlayers, timeRange, gameType, gameID }) {
+function updateGame({
+  game,
+  ageRange,
+  numberPlayers,
+  timeRange,
+  gameType,
+  gameID,
+}) {
   return new Promise((resolve, reject) => {
     console.log(gameID);
     db.collection("games")
-      .updateOne({ _id: parseInt(gameID) }, {$set: {game, ageRange, numberPlayers, timeRange, gameType}})
+      .updateOne(
+        { _id: parseInt(gameID) },
+        { $set: { game, ageRange, numberPlayers, timeRange, gameType } }
+      )
       .then((result) => {
         resolve(result);
       })
