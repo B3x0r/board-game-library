@@ -2,7 +2,7 @@
   "name": "board-game-library",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "main": "http_server.js",
   "homepage": ".",
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -28,9 +28,10 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node http_server.js",
+    "dev": "nodemon http_server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
