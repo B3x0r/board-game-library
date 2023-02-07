@@ -78,9 +78,9 @@ app.get("/game/:game_id", (req, res) => {
 });
 
 // catch all
-app.get("*", function (req, res) {
-  res.send("page not found");
-});
+//app.get("*", function (req, res) {
+//  res.send("page not found");
+//});
 
 var port = process.env.PORT || 3030;
 app.listen(port);
