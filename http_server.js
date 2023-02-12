@@ -4,7 +4,7 @@ var path = require("path");
 var app = express();
 var cors = require("cors");
 var { addGame, updateGame, getGame, all, deleteGame } = require("./dal-api");
-app.use(cors({ origin: process.env.PORT || "http://localhost:3000" }));
+app.use(cors( process.env.PORT || "http://localhost:3000" ));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(path.resolve(), "public")));
