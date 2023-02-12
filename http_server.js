@@ -4,10 +4,10 @@ var path = require("path");
 var app = express();
 var cors = require("cors");
 var { addGame, updateGame, getGame, all, deleteGame } = require("./dal-api");
-app.use(cors( process.env.PORT || "http://localhost:3000" ));
+app.use(cors( process.env.PORT || "http://localhost:3001" ));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(path.resolve(), "public")));
+app.use(express.static( "public"));
 
 //add game
 app.post("/game/add", (req, res) => {
@@ -78,10 +78,10 @@ app.get("/game/:game_id", (req, res) => {
 });
 
 // catch all
-//app.get("*", function (req, res) {
+// app.get("/", function (req, res) {
 //  res.send("page not found");
-//});
+// });
 
-var port = process.env.PORT || 3030;
+var port = process.env.PORT || 3001;
 app.listen(port);
 console.log("Running on port: " + port);
